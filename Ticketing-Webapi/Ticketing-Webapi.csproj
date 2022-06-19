@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Ticketing_Webapi</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\03.Service\MazaNetCOreFw.TicketingService\MazaNetCOreFw.TicketingService.csproj" />
+    <ProjectReference Include="..\04.Infrastructure\MazaNetCOreFw.TicketingInfrastructure\MazaNetCOreFw.TicketingInfrastructure.csproj" />
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties properties_4launchsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
+
+</Project>

@@ -1,0 +1,84 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00", "00", "{BF2CD0D9-CD3A-45F5-99B4-F80191314B97}"
+	ProjectSection(SolutionItems) = preProject
+		00\Nuget.config = 00\Nuget.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01.Domain", "01.Domain", "{68B3A6EB-700D-48FE-A4CC-D66FA00CA42A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.Persistence", "02.Persistence", "{7C8F4E8A-9846-4F0B-9420-D11C5337C7A9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03.Service", "03.Service", "{35DB8B31-ED36-41F3-BD0B-A8908464E66E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04.Infrastructure", "04.Infrastructure", "{3A49A40B-B978-4301-BD48-92D38972E14A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MazaNetCOreFw.TicketingDomain", "01.Domain\MazaNetCOreFw.TicketingDomain\MazaNetCOreFw.TicketingDomain.csproj", "{024C66EB-AAD8-455B-9EC0-B3493920FB66}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MazaNetCOreFw.TicketingPersistence", "02.Persistence\MazaNetCOreFw.TicketingPersistence\MazaNetCOreFw.TicketingPersistence.csproj", "{CD11BB64-0492-4262-94A1-437C1CEC5D8C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MazaNetCOreFw.TicketingService", "03.Service\MazaNetCOreFw.TicketingService\MazaNetCOreFw.TicketingService.csproj", "{2539897B-CF54-409D-AF3E-5721C9020285}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MazaNetCOreFw.TicketingInfrastructure", "04.Infrastructure\MazaNetCOreFw.TicketingInfrastructure\MazaNetCOreFw.TicketingInfrastructure.csproj", "{290C54AF-1FB5-47D6-AEAB-EA4F6B2AEEEF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05.Test", "05.Test", "{B0F2AFFC-FB85-48B6-9085-2EB87AB4F13D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MazaNetCOreFw.TicketingService.Test", "05.Test\MazaNetCOreFw.TicketingService.Test\MazaNetCOreFw.TicketingService.Test.csproj", "{DF23A917-9DC6-4154-99F4-1029A2826A6D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MazaNetCOreFw.TicketingPersistence.Test", "05.Test\MazaNetCOreFw.TicketingPersistence.Test\MazaNetCOreFw.TicketingPersistence.Test.csproj", "{5C97D578-FE20-445A-B25F-2128BB96AA89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticketing-Webapi", "Ticketing-Webapi\Ticketing-Webapi.csproj", "{71B36EDF-0705-4750-ABCC-DA9C6F385620}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{024C66EB-AAD8-455B-9EC0-B3493920FB66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{024C66EB-AAD8-455B-9EC0-B3493920FB66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{024C66EB-AAD8-455B-9EC0-B3493920FB66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{024C66EB-AAD8-455B-9EC0-B3493920FB66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD11BB64-0492-4262-94A1-437C1CEC5D8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD11BB64-0492-4262-94A1-437C1CEC5D8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD11BB64-0492-4262-94A1-437C1CEC5D8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD11BB64-0492-4262-94A1-437C1CEC5D8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2539897B-CF54-409D-AF3E-5721C9020285}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2539897B-CF54-409D-AF3E-5721C9020285}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2539897B-CF54-409D-AF3E-5721C9020285}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2539897B-CF54-409D-AF3E-5721C9020285}.Release|Any CPU.Build.0 = Release|Any CPU
+		{290C54AF-1FB5-47D6-AEAB-EA4F6B2AEEEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{290C54AF-1FB5-47D6-AEAB-EA4F6B2AEEEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{290C54AF-1FB5-47D6-AEAB-EA4F6B2AEEEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{290C54AF-1FB5-47D6-AEAB-EA4F6B2AEEEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF23A917-9DC6-4154-99F4-1029A2826A6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF23A917-9DC6-4154-99F4-1029A2826A6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF23A917-9DC6-4154-99F4-1029A2826A6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF23A917-9DC6-4154-99F4-1029A2826A6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C97D578-FE20-445A-B25F-2128BB96AA89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C97D578-FE20-445A-B25F-2128BB96AA89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C97D578-FE20-445A-B25F-2128BB96AA89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C97D578-FE20-445A-B25F-2128BB96AA89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71B36EDF-0705-4750-ABCC-DA9C6F385620}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71B36EDF-0705-4750-ABCC-DA9C6F385620}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71B36EDF-0705-4750-ABCC-DA9C6F385620}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71B36EDF-0705-4750-ABCC-DA9C6F385620}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{024C66EB-AAD8-455B-9EC0-B3493920FB66} = {68B3A6EB-700D-48FE-A4CC-D66FA00CA42A}
+		{CD11BB64-0492-4262-94A1-437C1CEC5D8C} = {7C8F4E8A-9846-4F0B-9420-D11C5337C7A9}
+		{2539897B-CF54-409D-AF3E-5721C9020285} = {35DB8B31-ED36-41F3-BD0B-A8908464E66E}
+		{290C54AF-1FB5-47D6-AEAB-EA4F6B2AEEEF} = {3A49A40B-B978-4301-BD48-92D38972E14A}
+		{DF23A917-9DC6-4154-99F4-1029A2826A6D} = {B0F2AFFC-FB85-48B6-9085-2EB87AB4F13D}
+		{5C97D578-FE20-445A-B25F-2128BB96AA89} = {B0F2AFFC-FB85-48B6-9085-2EB87AB4F13D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7FDE7E38-FB03-426B-B8FD-FE98A53A2EA3}
+	EndGlobalSection
+EndGlobal

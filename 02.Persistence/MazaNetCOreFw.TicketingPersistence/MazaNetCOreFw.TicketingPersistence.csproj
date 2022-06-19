@@ -1,0 +1,105 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Authors>MAZA</Authors>
+    <Company>M@Z@</Company>
+    <Description>This is Ticketing Persistence utilized in Ticketing Business line - SGSiT team</Description>
+    <Copyright>@maza.me</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20210208105337_initial.cs" />
+    <Compile Remove="Migrations\20210208105337_initial.Designer.cs" />
+    <Compile Remove="Migrations\20210208110216_initial.cs" />
+    <Compile Remove="Migrations\20210208110216_initial.Designer.cs" />
+    <Compile Remove="Migrations\20220125072355_Change_nonClustered_Indexes_To_Clustered.cs" />
+    <Compile Remove="Migrations\20220125072355_Change_nonClustered_Indexes_To_Clustered.Designer.cs" />
+    <Compile Remove="Migrations\20220525062317_test.cs" />
+    <Compile Remove="Migrations\20220525062317_test.Designer.cs" />
+    <Compile Remove="Migrations\20220528041001_test.cs" />
+    <Compile Remove="Migrations\20220528041001_test.Designer.cs" />
+    <Compile Remove="Migrations\20220528041300_InsertProductAndProduct.cs" />
+    <Compile Remove="Migrations\20220528041300_InsertProductAndProduct.Designer.cs" />
+    <Compile Remove="Migrations\20220528043108_InserOrderAndOrderDetails.cs" />
+    <Compile Remove="Migrations\20220528043108_InserOrderAndOrderDetails.Designer.cs" />
+    <Compile Remove="Migrations\20220528043902_InsertRelationFororderdatailAndProduct.cs" />
+    <Compile Remove="Migrations\20220528043902_InsertRelationFororderdatailAndProduct.Designer.cs" />
+    <Compile Remove="Migrations\20220528044206_Test.cs" />
+    <Compile Remove="Migrations\20220528044206_Test.Designer.cs" />
+    <Compile Remove="Migrations\20220528045640_test2.cs" />
+    <Compile Remove="Migrations\20220528045640_test2.Designer.cs" />
+    <Compile Remove="Migrations\20220528050010_inserttbl.cs" />
+    <Compile Remove="Migrations\20220528050010_inserttbl.Designer.cs" />
+    <Compile Remove="Migrations\20220528050406_InsertTabale.cs" />
+    <Compile Remove="Migrations\20220528050406_InsertTabale.Designer.cs" />
+    <Compile Remove="Migrations\20220528050904_EditePrdoct.cs" />
+    <Compile Remove="Migrations\20220528050904_EditePrdoct.Designer.cs" />
+    <Compile Remove="Migrations\20220528060010_TestBrandAndOrderDEtailRell.cs" />
+    <Compile Remove="Migrations\20220528060010_TestBrandAndOrderDEtailRell.Designer.cs" />
+    <Compile Remove="Migrations\20220528061919_Insert_Product_Table.cs" />
+    <Compile Remove="Migrations\20220528061919_Insert_Product_Table.Designer.cs" />
+    <Compile Remove="Migrations\20220528091104_InsertConfiguration.cs" />
+    <Compile Remove="Migrations\20220528091104_InsertConfiguration.Designer.cs" />
+    <Compile Remove="Migrations\20220528092246_TestForconfiguration.cs" />
+    <Compile Remove="Migrations\20220528092246_TestForconfiguration.Designer.cs" />
+    <Compile Remove="Migrations\20220528092605_InsertNameConfiguration.cs" />
+    <Compile Remove="Migrations\20220528092605_InsertNameConfiguration.Designer.cs" />
+    <Compile Remove="Migrations\20220528092828_InsertProduct-price-Cofiguration.cs" />
+    <Compile Remove="Migrations\20220528092828_InsertProduct-price-Cofiguration.Designer.cs" />
+    <Compile Remove="Migrations\20220528093144_InsertBigIntForPriceInProduct.cs" />
+    <Compile Remove="Migrations\20220528093144_InsertBigIntForPriceInProduct.Designer.cs" />
+    <Compile Remove="Migrations\20220528093345_InsertBigIntForPrice.cs" />
+    <Compile Remove="Migrations\20220528093345_InsertBigIntForPrice.Designer.cs" />
+    <Compile Remove="Migrations\20220528094214_test.cs" />
+    <Compile Remove="Migrations\20220528094214_test.Designer.cs" />
+    <Compile Remove="Migrations\20220528094443_test.cs" />
+    <Compile Remove="Migrations\20220528094443_test.Designer.cs" />
+    <Compile Remove="Migrations\20220528094541_InsertBigIntForPrice.cs" />
+    <Compile Remove="Migrations\20220528094541_InsertBigIntForPrice.Designer.cs" />
+    <Compile Remove="Migrations\20220528094627_InsertBigIntForPrice.cs" />
+    <Compile Remove="Migrations\20220528094627_InsertBigIntForPrice.Designer.cs" />
+    <Compile Remove="Migrations\20220528095201_ChangeTypeTotalPriceForOrder.cs" />
+    <Compile Remove="Migrations\20220528095201_ChangeTypeTotalPriceForOrder.Designer.cs" />
+    <Compile Remove="Migrations\20220528100605_test.cs" />
+    <Compile Remove="Migrations\20220528100605_test.Designer.cs" />
+    <Compile Remove="Migrations\20220528100917_BigintInTotalprice.cs" />
+    <Compile Remove="Migrations\20220528100917_BigintInTotalprice.Designer.cs" />
+    <Compile Remove="Migrations\20220529065210_Add_FetchProduct_StoredProcedures.cs" />
+    <Compile Remove="Migrations\20220529065210_Add_FetchProduct_StoredProcedures.Designer.cs" />
+    <Compile Remove="Migrations\20220529065746_Change_FetchProducts.cs" />
+    <Compile Remove="Migrations\20220529065746_Change_FetchProducts.Designer.cs" />
+    <Compile Remove="Migrations\20220529071211_Add_FetchProduct_StoredProcedures.cs" />
+    <Compile Remove="Migrations\20220529071211_Add_FetchProduct_StoredProcedures.Designer.cs" />
+    <Compile Remove="Migrations\20220602054541_InsertTicketDb.cs" />
+    <Compile Remove="Migrations\20220602054541_InsertTicketDb.Designer.cs" />
+    <Compile Remove="Migrations\20220606041021_InsertConfiguration.cs" />
+    <Compile Remove="Migrations\20220606041021_InsertConfiguration.Designer.cs" />
+    <Compile Remove="Migrations\20220612052912_test.cs" />
+    <Compile Remove="Migrations\20220612052912_test.Designer.cs" />
+    <Compile Remove="Migrations\20220612104057_Test.cs" />
+    <Compile Remove="Migrations\20220612104057_Test.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.1.0" />
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="MazaNetCOreFw.SharedPersistence" Version="1.0.82116" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\01.Domain\MazaNetCOreFw.TicketingDomain\MazaNetCOreFw.TicketingDomain.csproj" />
+    <ProjectReference Include="..\..\01.Domain\MazaNetCOreFw.TicketingDomain\MazaNetCOreFw.TicketingDomain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
+</Project>

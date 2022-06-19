@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Copyright>@maza.me</Copyright>
+    <Company>M@Z@</Company>
+    <Authors>MAZA</Authors>
+    <Description>This is Ticketing Domain utilized in Ticketing Business line - SGSiT team</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MazaNetCOreFw.BaseDomain" Version="1.0.82116" />
+  </ItemGroup>
+
+</Project>

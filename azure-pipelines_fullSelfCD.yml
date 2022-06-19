@@ -1,0 +1,75 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+variables:
+- group: Unity_Variable_Group
+
+trigger: none
+
+pool: Default
+
+steps:
+# start of update packages
+  - task: DotNetCoreCLI@2
+    displayName: 'clear local cache'
+    inputs:
+      command: custom
+      custom: nuget
+      arguments: 'locals http-cache --clear'
+
+# end of update packages
+  - task: DotNetCoreCLI@2
+    displayName: "build Domain"
+    inputs:
+      command: 'build'
+      projects: '**/*.csproj'
+      configuration: $(Unity_BuildConfiguration)
+
+
+  - task: DotNetCoreCLI@2
+    displayName: "pack domain"
+    inputs:
+      command: 'pack'
+      packagesToPack: '**/MazaNetCOreFw.TicketingDomain.csproj'
+      versioningScheme: byEnvVar
+      versionEnvVar: Unity_BuildNumber
+
+  - task: DotNetCoreCLI@2
+    displayName: "pack Persistence"
+    inputs:
+      command: 'pack'
+      packagesToPack: '**/MazaNetCOreFw.TicketingPersistence.csproj'
+      versioningScheme: byEnvVar
+      versionEnvVar: Unity_BuildNumber
+
+  - task: DotNetCoreCLI@2
+    displayName: "pack Service"
+    inputs:
+      command: 'pack'
+      packagesToPack: '**/MazaNetCOreFw.TicketingService.csproj'
+      versioningScheme: byEnvVar
+      versionEnvVar: Unity_BuildNumber
+
+  - task: DotNetCoreCLI@2
+    displayName: "pack Infrastructure"
+    inputs:
+      command: 'pack'
+      packagesToPack: '**/MazaNetCOreFw.TicketingInfrastructure.csproj'
+      versioningScheme: byEnvVar
+      versionEnvVar: Unity_BuildNumber
+  - task: NuGetCommand@2
+    inputs:
+      command: 'push'
+      packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+      nuGetFeedType: 'internal'
+      publishVstsFeed: 'eb1228b2-0814-44b8-9ccc-817f27ef02bb/b2622bcc-02ff-494e-aca4-8f2ae212b571'
+
+  - task: NuGetCommand@2
+    displayName: 'NuGet Push to BaGet'
+    inputs:
+      command: push
+      nuGetFeedType: external
+      publishFeedCredentials: MyBaGetServiceConnection
+

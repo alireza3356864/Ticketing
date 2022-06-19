@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Authors>MAZA</Authors>
+    <Company>M@Z@</Company>
+    <Description>This is Ticketing Service utilized in Ticketing Business line - SGSiT team</Description>
+    <Copyright>@maza.me</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MazaNetCOreFw.SharedService" Version="1.0.82116" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\02.Persistence\MazaNetCOreFw.TicketingPersistence\MazaNetCOreFw.TicketingPersistence.csproj" />
+  </ItemGroup>
+
+</Project>

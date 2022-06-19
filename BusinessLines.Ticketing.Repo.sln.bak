@@ -1,0 +1,84 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32510.428
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00", "00", "{BF2CD0D9-CD3A-45F5-99B4-F80191314B97}"
+	ProjectSection(SolutionItems) = preProject
+		00\Nuget.config = 00\Nuget.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01.Domain", "01.Domain", "{68B3A6EB-700D-48FE-A4CC-D66FA00CA42A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.Persistence", "02.Persistence", "{7C8F4E8A-9846-4F0B-9420-D11C5337C7A9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03.Service", "03.Service", "{35DB8B31-ED36-41F3-BD0B-A8908464E66E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04.Infrastructure", "04.Infrastructure", "{3A49A40B-B978-4301-BD48-92D38972E14A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06.Documentations", "06.Documentations", "{9C483AFB-1C0E-4B23-9BDF-986A3533756C}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\Users\yousefi.sara\Desktop\Business_ Line_Folder_Guide.pdf = ..\..\..\..\Users\yousefi.sara\Desktop\Business_ Line_Folder_Guide.pdf
+		05.Documentations\GUIDE.pdf = 05.Documentations\GUIDE.pdf
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MazaNetCOreFw.DummyDomain", "01.Domain\MazaNetCOreFw.DummyDomain\MazaNetCOreFw.DummyDomain.csproj", "{024C66EB-AAD8-455B-9EC0-B3493920FB66}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MazaNetCOreFw.DummyPersistence", "02.Persistence\MazaNetCOreFw.DummyPersistence\MazaNetCOreFw.DummyPersistence.csproj", "{CD11BB64-0492-4262-94A1-437C1CEC5D8C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MazaNetCOreFw.DummyService", "03.Service\MazaNetCOreFw.DummyService\MazaNetCOreFw.DummyService.csproj", "{2539897B-CF54-409D-AF3E-5721C9020285}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MazaNetCOreFw.DummyInfrastructure", "04.Infrastructure\MazaNetCOreFw.DummyInfrastructure\MazaNetCOreFw.DummyInfrastructure.csproj", "{290C54AF-1FB5-47D6-AEAB-EA4F6B2AEEEF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MazaNetCOreFw.DummyPersistence.Test", "MazaNetCOreFw.DummyPersistence.Test\MazaNetCOreFw.DummyPersistence.Test.csproj", "{CEC301E7-EA66-4792-8527-9CCB486E7864}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05.Test", "05.Test", "{B0F2AFFC-FB85-48B6-9085-2EB87AB4F13D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MazaNetCOreFw.DummyService.Test", "05.Test\MazaNetCOreFw.DummyService.Test\MazaNetCOreFw.DummyService.Test.csproj", "{DF23A917-9DC6-4154-99F4-1029A2826A6D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{024C66EB-AAD8-455B-9EC0-B3493920FB66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{024C66EB-AAD8-455B-9EC0-B3493920FB66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{024C66EB-AAD8-455B-9EC0-B3493920FB66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{024C66EB-AAD8-455B-9EC0-B3493920FB66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD11BB64-0492-4262-94A1-437C1CEC5D8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD11BB64-0492-4262-94A1-437C1CEC5D8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD11BB64-0492-4262-94A1-437C1CEC5D8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD11BB64-0492-4262-94A1-437C1CEC5D8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2539897B-CF54-409D-AF3E-5721C9020285}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2539897B-CF54-409D-AF3E-5721C9020285}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2539897B-CF54-409D-AF3E-5721C9020285}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2539897B-CF54-409D-AF3E-5721C9020285}.Release|Any CPU.Build.0 = Release|Any CPU
+		{290C54AF-1FB5-47D6-AEAB-EA4F6B2AEEEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{290C54AF-1FB5-47D6-AEAB-EA4F6B2AEEEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{290C54AF-1FB5-47D6-AEAB-EA4F6B2AEEEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{290C54AF-1FB5-47D6-AEAB-EA4F6B2AEEEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEC301E7-EA66-4792-8527-9CCB486E7864}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEC301E7-EA66-4792-8527-9CCB486E7864}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEC301E7-EA66-4792-8527-9CCB486E7864}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEC301E7-EA66-4792-8527-9CCB486E7864}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF23A917-9DC6-4154-99F4-1029A2826A6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF23A917-9DC6-4154-99F4-1029A2826A6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF23A917-9DC6-4154-99F4-1029A2826A6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF23A917-9DC6-4154-99F4-1029A2826A6D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{024C66EB-AAD8-455B-9EC0-B3493920FB66} = {68B3A6EB-700D-48FE-A4CC-D66FA00CA42A}
+		{CD11BB64-0492-4262-94A1-437C1CEC5D8C} = {7C8F4E8A-9846-4F0B-9420-D11C5337C7A9}
+		{2539897B-CF54-409D-AF3E-5721C9020285} = {35DB8B31-ED36-41F3-BD0B-A8908464E66E}
+		{290C54AF-1FB5-47D6-AEAB-EA4F6B2AEEEF} = {3A49A40B-B978-4301-BD48-92D38972E14A}
+		{CEC301E7-EA66-4792-8527-9CCB486E7864} = {B0F2AFFC-FB85-48B6-9085-2EB87AB4F13D}
+		{DF23A917-9DC6-4154-99F4-1029A2826A6D} = {B0F2AFFC-FB85-48B6-9085-2EB87AB4F13D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7FDE7E38-FB03-426B-B8FD-FE98A53A2EA3}
+	EndGlobalSection
+EndGlobal

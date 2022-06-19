@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Authors>MAZA</Authors>
+    <Company>M@Z@</Company>
+    <Description>This is Ticketing Infrastructure utilized in Ticketing Business line - SGSiT team</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\03.Service\MazaNetCOreFw.TicketingService\MazaNetCOreFw.TicketingService.csproj" />
+  </ItemGroup>
+
+</Project>
