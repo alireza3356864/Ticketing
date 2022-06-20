@@ -40,11 +40,23 @@ namespace Ticketing_Webapi
             #region Db Context
             services.AddDbContext<TicketingDbContext>(options =>
             {
-                
                 options.UseSqlServer(Cryptography.DecryptUsingSha256(Configuration.GetConnectionString("TicketingConnectionStr")));
             });
 
             #endregion
+           
+
+            services.AddCors(o => 
+                o.AddPolicy("MyPolicy", builder =>
+                {
+                    builder.WithOrigins("http://127.0.0.1:8887")
+                                     .AllowAnyHeader()
+                                     .AllowCredentials()
+                                    .AllowAnyMethod();
+                })
+            );
+
+            services.AddControllers();
             #region IoC
             var mappingConfig = new MapperConfiguration(mc =>
             {
@@ -58,39 +70,35 @@ namespace Ticketing_Webapi
             });
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
-            services.AddScoped<ITicketingUnitOfWork, TicketingUnitOfWork>();
             services.AddScoped<ICodeSequenceRepository, CodeSequenceRepository>();
             services.AddScoped<ITicketConversationRepository, TicketConversationRepository>();
             services.AddScoped<ITicketRepository, TicketRepository>();
             services.AddScoped<ITopicRepository, TopicRepository>();
+            services.AddScoped<ITicketingUnitOfWork, TicketingUnitOfWork>();
             services.AddScoped<IRootTicketingService, RootTicketingService>();
             #endregion
-
-            services.AddCors(options =>
-            {
-                options.AddPolicy("AllowOrigin",
-                        builder => builder.WithOrigins("https://localhost:44358")
-                                          .WithMethods("GET", "POST", "HEAD"));
-            });
-
-
-            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-           
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            //app.UseCors("MyPolicy");
+            //app.UseCors(configurePolicy: (options) => {
+            //    options.WithOrigins("http://127.0.0.1:8887")
+            //            .AllowAnyHeader()
+            //            .AllowCredentials()
+            //            .AllowAnyMethod();
+            //});
             app.UseHttpsRedirection();
 
             app.UseRouting();
-            app.UseCors("CorsPolicy");
-            // app.UseCors();
+          
+            app.UseCors();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

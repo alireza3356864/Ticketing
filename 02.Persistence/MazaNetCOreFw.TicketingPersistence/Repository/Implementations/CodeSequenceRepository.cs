@@ -43,6 +43,7 @@ namespace MazaNetCOreFw.TicketingPersistence.Repository.Implementations
             try
             {
                 int persianDate= int.Parse(DateTime.Now.ToPersianDate("yyyy"));
+   
                 var appcodes = await _dbContext.CodeSequences.
                              Where(x =>
                              (x.SectionType == null || x.SectionType.Equals(sectionType))
@@ -53,7 +54,7 @@ namespace MazaNetCOreFw.TicketingPersistence.Repository.Implementations
                              .OrderByDescending(x => x.UserId)
                              .ThenByDescending(x => x.SectionId)
                              .ThenByDescending(x => x.SectionType)
-                            .FirstOrDefaultAsync();
+                            .FirstOrDefaultAsync(cancellationToken);
                 if (appcodes is null) {
                     return new GenerateCodeResponse(false, "امکان ساخت تیکت جدید در سال جاری موجود نیست، لطفا با مدیر سیستم تماس حاصل فرمایید");
                 }

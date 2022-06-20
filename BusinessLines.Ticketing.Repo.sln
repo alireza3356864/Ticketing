@@ -30,7 +30,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MazaNetCOreFw.TicketingServ
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MazaNetCOreFw.TicketingPersistence.Test", "05.Test\MazaNetCOreFw.TicketingPersistence.Test\MazaNetCOreFw.TicketingPersistence.Test.csproj", "{5C97D578-FE20-445A-B25F-2128BB96AA89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticketing-Webapi", "Ticketing-Webapi\Ticketing-Webapi.csproj", "{71B36EDF-0705-4750-ABCC-DA9C6F385620}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ticketing-Webapi", "Ticketing-Webapi\Ticketing-Webapi.csproj", "{71B36EDF-0705-4750-ABCC-DA9C6F385620}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

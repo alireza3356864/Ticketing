@@ -4,6 +4,7 @@ using MazaNetCOreFw.TicketingPersistence.Contracts;
 using MazaNetCOreFw.TicketingPersistence.Database;
 using MazaNetCOreFw.TicketingPersistence.Repository.Implementations;
 using MazaNetCOreFw.TicketingPersistence.Repository.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,11 +18,11 @@ namespace MazaNetCOreFw.TicketingPersistence.Implementations
         private  TicketingDbContext _dbContext;
         private readonly IMapper _mapper;
 
-        public TicketingUnitOfWork(IMapper mapper,
-                               TicketingDbContext dbContext)
+        public TicketingUnitOfWork(IMapper mapper, TicketingDbContext dbContext)
         {
-            _dbContext = dbContext;
+            //_dbContext= new TicketingDbContextFactory().Create();
             _mapper = mapper;
+            _dbContext = dbContext;
         }
 
 
