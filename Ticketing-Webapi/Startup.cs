@@ -36,7 +36,11 @@ namespace Ticketing_Webapi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
+
+           
+
+           
+
             #region Db Context
             services.AddDbContext<TicketingDbContext>(options =>
             {
@@ -44,19 +48,7 @@ namespace Ticketing_Webapi
             });
 
             #endregion
-           
-
-            services.AddCors(o => 
-                o.AddPolicy("MyPolicy", builder =>
-                {
-                    builder.WithOrigins("http://127.0.0.1:8887")
-                                     .AllowAnyHeader()
-                                     .AllowCredentials()
-                                    .AllowAnyMethod();
-                })
-            );
-
-            services.AddControllers();
+        
             #region IoC
             var mappingConfig = new MapperConfiguration(mc =>
             {
@@ -77,6 +69,16 @@ namespace Ticketing_Webapi
             services.AddScoped<ITicketingUnitOfWork, TicketingUnitOfWork>();
             services.AddScoped<IRootTicketingService, RootTicketingService>();
             #endregion
+           // services.AddCors(o =>
+           //    o.AddPolicy("MyPolicy", builder =>
+           //    {
+           //        builder.WithOrigins("http://127.0.0.1:8887")
+           //                         .AllowAnyHeader()
+           //                         .AllowCredentials()
+           //                        .AllowAnyMethod();
+           //    })
+           //);
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -88,17 +90,18 @@ namespace Ticketing_Webapi
                 app.UseDeveloperExceptionPage();
             }
             //app.UseCors("MyPolicy");
-            //app.UseCors(configurePolicy: (options) => {
-            //    options.WithOrigins("http://127.0.0.1:8887")
-            //            .AllowAnyHeader()
-            //            .AllowCredentials()
-            //            .AllowAnyMethod();
-            //});
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
-          
-            app.UseCors();
+            app.UseCors(configurePolicy: (options) =>
+            {
+                options.WithOrigins("http://127.0.0.1:8887")
+                        .AllowAnyHeader()
+                        .AllowCredentials()
+                        .AllowAnyMethod();
+            });
+            //app.UseCors();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

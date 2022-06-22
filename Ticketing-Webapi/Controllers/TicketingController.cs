@@ -25,7 +25,6 @@ namespace Ticketing_Webapi.Controllers
 
     [ApiController]
     [Route("[controller]")]
-    [EnableCors("MyPolicy")]
     public class TicketingController : Controller
     {
         Guid topicId = Guid.Parse("E6D1D44E-FE68-4952-A743-FB3C4E8EF9E6");
