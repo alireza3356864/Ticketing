@@ -116,9 +116,8 @@ namespace MazaNetCOreFw.TicketingPersistence.Repository.Implementations
                                         }
                                     )
                 .ToListAsync(cancellationToken);
-                var result = appTickets.GroupBy(x => x.ticket.Id)
+                var result = appTickets.OrderByDescending(x=>x.ticket.Created).GroupBy(x => x.ticket.Id)
                                       .Select(x => _mapper.Map<Ticket>(x.FirstOrDefault()?.ticket)).ToList();
-
                 return new GetTicketsResponse(result, true, "عملیات با موفقیت انجام شد");
             }
             catch (Exception ex)

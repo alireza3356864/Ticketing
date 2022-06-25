@@ -29,7 +29,7 @@ namespace Ticketing_Webapi.Controllers
     {
         Guid topicId = Guid.Parse("E6D1D44E-FE68-4952-A743-FB3C4E8EF9E6");
         Guid ticketId = Guid.Parse("27A5895A-F37F-48B1-8880-8277F0942458");
-        Guid fromSectionId = Guid.Parse("600a3141-ddfb-4279-bd28-5c405dc3e1a0");
+        Guid fromSectionId = Guid.Parse("7B707DEB-9F58-4A0F-8518-A089D0386DBC");
         string fromUserId = "32C83E33-16A9-40CF-A8BE-43B93EE87D28";
         string fromUserName = "store18@surenacs.com";
         string fromSectionName = "سورنا 18";
@@ -50,10 +50,13 @@ namespace Ticketing_Webapi.Controllers
             _logger = logger;
             _rootTicketingService = rootTicketingService;
         }
-        [HttpGet]
-        public string Index() {
+
+        public string Index()
+        {
             return "Welcome";
         }
+
+
         [HttpPost]
         [Route("InsertTicket")]
         public async Task<ActionResult> InsertTicket(InsertTicketRequest insertTicketRequest)
@@ -98,8 +101,21 @@ namespace Ticketing_Webapi.Controllers
 
                 return ticketPresenter.ContentResult;
             
-
-            
         }
+
+
+        [HttpPost]
+        [Route("GetAllTicket")]
+        public async Task<ActionResult> GetAllTicket()
+        {
+
+            TicketsPresenter ticketsPresenter = new TicketsPresenter();
+
+            var result = await _rootTicketingService.GetAllTicketsHandle(new GetTicketsReq(fromSectionId:Guid.Parse("7B707DEB-9F58-4A0F-8518-A089D0386DBC")), ticketsPresenter);
+
+            return ticketsPresenter.ContentResult;
+        }
+
+
     }
 }
