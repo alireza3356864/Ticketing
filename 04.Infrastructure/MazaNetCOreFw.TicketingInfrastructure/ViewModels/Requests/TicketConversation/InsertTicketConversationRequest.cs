@@ -7,9 +7,9 @@ namespace MazaNetCOreFw.TicketingInfrastructure.ViewModels.Requests.Topics
 {
     public class InsertTicketConversationRequest
     {
-        public Guid? TicketId { get; set; }
-        public Guid? ParentTicketId { get; set; }
-        public TicketPriority? Status { get; set; }
+        public Guid TicketId { get; set; }
+        public Guid ParentTicketId { get; set; }
+        public TicketStatus Status { get; set; }
         public string Body { get; set; }
     }
 }

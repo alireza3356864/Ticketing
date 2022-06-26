@@ -108,13 +108,67 @@ namespace Ticketing_Webapi.Controllers
         [Route("GetAllTicket")]
         public async Task<ActionResult> GetAllTicket()
         {
-
             TicketsPresenter ticketsPresenter = new TicketsPresenter();
 
-            var result = await _rootTicketingService.GetAllTicketsHandle(new GetTicketsReq(fromSectionId:Guid.Parse("7B707DEB-9F58-4A0F-8518-A089D0386DBC")), ticketsPresenter);
+            var result = await _rootTicketingService.GetAllTicketsHandle(new GetTicketsReq(
+                fromSectionId:Guid.Parse("7B707DEB-9F58-4A0F-8518-A089D0386DBC")
+             
+                ), ticketsPresenter);
 
             return ticketsPresenter.ContentResult;
         }
+
+
+
+        [HttpPost]
+        [Route("InsertTicketConversation")]
+        public async Task<ActionResult> InsertTicketConversation(InsertTicketConversationRequest insertTicketConversationRequest)
+        {
+
+            TicketConversationPresenter ticketConversationPresenter = new TicketConversationPresenter();
+
+            var result = await _rootTicketingService.InsertTicketConversationHandle(new InsertTicketConversationReq(
+                   new TicketConversation()
+                   {
+                       Body = insertTicketConversationRequest.Body,
+                       Status = insertTicketConversationRequest.Status,
+                       UserId = fromUserId,
+                       UserName = fromUserName,
+                       SectionId = fromSectionId,
+                       SectionCode = fromSectionCode,
+                       SectionType = fromSectionType,
+                       SectionName = fromSectionName,
+                       TicketId = insertTicketConversationRequest.TicketId,
+                       ParentId = Guid.Parse("F6375886-AA31-4BC2-B4CD-72EB15D25E85")
+                       //ParentId = insertTicketConversationRequest.ParentTicketId
+
+
+                   }), ticketConversationPresenter);
+
+            return ticketConversationPresenter.ContentResult;
+        }
+
+        [HttpPost]
+        [Route("GetAllTicketConversation")]
+        public async Task<ActionResult> GetAllTicketConversation()
+        {
+            TicketsPresenter ticketsPresenter = new TicketsPresenter();
+
+            var result = await _rootTicketingService.GetAllTicketsHandle(new GetTicketsReq(
+                fromSectionId: Guid.Parse("7B707DEB-9F58-4A0F-8518-A089D0386DBC")
+
+                ), ticketsPresenter);
+
+            return ticketsPresenter.ContentResult;
+        }
+
+
+
+
+
+
+
+
 
 
     }

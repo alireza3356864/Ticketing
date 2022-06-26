@@ -96,7 +96,9 @@ namespace Ticketing_Webapi
             app.UseRouting();
             app.UseCors(configurePolicy: (options) =>
             {
-                options.WithOrigins("http://127.0.0.1:8887")
+                //options.WithOrigins("https://localhost:44333")
+                //options.WithOrigins("http://127.0.0.1:8887")
+                options.WithOrigins("https://localhost:44333")
                         .AllowAnyHeader()
                         .AllowCredentials()
                         .AllowAnyMethod();
