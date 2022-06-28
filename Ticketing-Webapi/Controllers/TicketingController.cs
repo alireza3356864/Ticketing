@@ -152,14 +152,12 @@ namespace Ticketing_Webapi.Controllers
         [Route("GetAllTicketConversation")]
         public async Task<ActionResult> GetAllTicketConversation()
         {
-            TicketsPresenter ticketsPresenter = new TicketsPresenter();
+            TicketPresenter ticketPresenter = new TicketPresenter();
 
-            var result = await _rootTicketingService.GetAllTicketsHandle(new GetTicketsReq(
-                fromSectionId: Guid.Parse("7B707DEB-9F58-4A0F-8518-A089D0386DBC")
+            var result = await _rootTicketingService.GetTicketConversationsHandle(new GetTicketConversationReq(Guid.Parse("87c7b203-2eac-443f-8081-f537c533ab6b"))
+                    , ticketPresenter);
 
-                ), ticketsPresenter);
-
-            return ticketsPresenter.ContentResult;
+            return ticketPresenter.ContentResult;
         }
 
 
