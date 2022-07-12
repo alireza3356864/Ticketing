@@ -19,7 +19,7 @@ namespace MazaNetCOreFw.TicketingService.Contracts
         Task<bool> InsertTicketHandle(InsertTicketReq message, IOutputPort<GetTicketResponse> outputPort);
         Task<bool> GetAllTicketsHandle(GetTicketsReq message, IOutputPort<GetTicketsResponse> outputPort);
         Task<bool> InsertTicketConversationHandle(InsertTicketConversationReq message, IOutputPort<GetTicketConversationResponse> outputPort);
-        Task<bool> GetTicketConversationsHandle(GetTicketConversationReq message, IOutputPort<GetTicketResponse> outputPort);
+        Task<bool> GetTicketConversationsHandle(GetTicketConversationReq message, IOutputPort<GetTicketConversationsResponse> outputPort);
 
     }
 }

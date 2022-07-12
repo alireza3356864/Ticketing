@@ -12,7 +12,7 @@ namespace MazaNetCOreFw.TicketingPersistence.Repository.Interfaces
     public interface ITicketConversationRepository
     {
         Task<GetTicketConversationResponse> InsertAsync(AppTicketConversation ticketConversation, CancellationToken cancellationToken = default);
-        Task<GetTicketResponse> GetByTicketIdAsync(Guid ticketId, CancellationToken cancellationToken = default);
+        Task<GetTicketConversationsResponse> GetByTicketIdAsync(Guid ticketId, CancellationToken cancellationToken = default);
     }
 }
 

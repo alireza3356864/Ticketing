@@ -233,8 +233,9 @@ namespace MazaNetCOreFw.TicketingService.Implementations
         {
             try
             {
-                var updateTicket = await _unitOfWork.TicketRepository.UpdateStatusAsync(
+                var getTicketResponse = await _unitOfWork.TicketRepository.UpdateStatusAsync(
                        message.TicketConversation.TicketId,
+                       message.TicketConversation.UserId,
                        message.TicketConversation.Status
                     );
                 GetTicketConversationResponse ticketConversationResult = await _unitOfWork.TicketConversationRepository.InsertAsync(_mapper.Map<AppTicketConversation>(message.TicketConversation));
@@ -259,7 +260,7 @@ namespace MazaNetCOreFw.TicketingService.Implementations
         /// <param name="message"></param>
         /// <param name="outputPort"></param>
         /// <returns></returns>
-        public async Task<bool> GetTicketConversationsHandle(GetTicketConversationReq message, IOutputPort<GetTicketResponse> outputPort)
+        public async Task<bool> GetTicketConversationsHandle(GetTicketConversationReq message, IOutputPort<GetTicketConversationsResponse> outputPort)
         {
             try
             {
@@ -271,7 +272,7 @@ namespace MazaNetCOreFw.TicketingService.Implementations
             }
             catch (Exception ex)
             {
-                outputPort.Handle(new GetTicketResponse(null, false, $"خطایی رخ داد:{ex.ToString()}"));
+                outputPort.Handle(new GetTicketConversationsResponse(null, false, $"خطایی رخ داد:{ex.ToString()}"));
                 return false;
             }
         }

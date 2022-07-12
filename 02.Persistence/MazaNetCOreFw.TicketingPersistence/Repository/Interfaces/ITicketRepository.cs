@@ -14,7 +14,7 @@ namespace MazaNetCOreFw.TicketingPersistence.Repository.Interfaces
     {
         Task<GetTicketResponse> InsertAsync(AppTicket ticket, CancellationToken cancellationToken = default);
         Task<GetTicketsResponse> GetAllAsync(string fromUserId = null, Guid? fromSectionId = null, SectionType? fromSectionType = null, string toUserId = null, Guid? toSectionId = null, SectionType? toSectionType = null, Guid? topicId = null, List<TicketStatus> statusList = null, int? year = null, List<TicketPriority> ticketPriorities = null, bool checkActive = true, bool checkDeleted = true, CancellationToken cancellationToken = default);
-        Task<BaseResponse> UpdateStatusAsync(Guid ticketId, TicketStatus status, CancellationToken cancellationToken = default);
+        Task<GetTicketResponse> UpdateStatusAsync(Guid ticketId, string fromUserId, TicketStatus status, CancellationToken cancellationToken = default);
 
 
     }

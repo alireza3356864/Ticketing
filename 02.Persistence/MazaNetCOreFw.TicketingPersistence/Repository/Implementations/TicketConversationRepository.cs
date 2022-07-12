@@ -50,39 +50,45 @@ namespace MazaNetCOreFw.TicketingPersistence.Repository.Implementations
         /// <param name="ticketId"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public async Task<GetTicketResponse> GetByTicketIdAsync(Guid ticketId, CancellationToken cancellationToken = default)
+        public async Task<GetTicketConversationsResponse> GetByTicketIdAsync(Guid ticketId, CancellationToken cancellationToken = default)
         {
             try
             {
                 //query syntax
-                var appTickets = await (from ticket in _dbContext.Tickets.Where(x => (x.Id == null || x.Id.Equals(ticketId))                           
-                                                        && (x.Active)
-                                                        && (!x.Deleted))
-                                        from ticketRaiser in _dbContext.TicketRaisers.Where(x => x.TicketId.Equals(ticket.Id))
-                                        from ticketConversation in _dbContext.TicketConversations.Where(x => x.TicketId.Equals(ticket.Id)
-                                                                                                            && (x.Active)
-                                                                                                            && (!x.Deleted))
-                                        from topic in _dbContext.Topics.Where(x => x.Id.Equals(ticket.TopicId))
-                                        select new
-                                        {
-                                            topic,
-                                            ticket,
-                                            ticketRaiser,
-                                            ticketConversation
-                                        }
-                                    )
-                .ToListAsync(cancellationToken);
+                //var appTickets = await (from ticket in _dbContext.Tickets.Where(x => (x.Id == null || x.Id.Equals(ticketId))
+                //                                        && (x.Active)
+                //                                        && (!x.Deleted))
+                //                        from ticketRaiser in _dbContext.TicketRaisers.Where(x => x.TicketId.Equals(ticket.Id))
+                //                        from ticketConversation in _dbContext.TicketConversations.Where(x => x.TicketId.Equals(ticket.Id)
+                //                                                                                            && (x.Active)
+                //                                                                                            && (!x.Deleted))
+                //                        from topic in _dbContext.Topics.Where(x => x.Id.Equals(ticket.TopicId))
+                //                        select new
+                //                        {
+                //                            topic,
+                //                            ticket,
+                //                            ticketRaiser,
+                //                            ticketConversation
+                //                        }
+                //                    )
+                //.ToListAsync(cancellationToken);
 
-                //get distinct answer
-                var result = appTickets.GroupBy(x => x.ticket.Id)
-                      .Select(x => _mapper.Map<Ticket>(x.FirstOrDefault()?.ticket)).FirstOrDefault();
+                ////get distinct answer
+                //var result = appTickets.GroupBy(x => x.ticket.Id)
+                //      .Select(x => _mapper.Map<Ticket>(x.FirstOrDefault()?.ticket))
+                //      .FirstOrDefault();
 
-                return new GetTicketResponse(result, true, "عملیات با موفقیت انجام شد");
+                var result= await _dbContext.TicketConversations.Where(x => x.TicketId.Equals(ticketId)).OrderBy(x=>x.Created).ToListAsync();
+
+
+
+                //return new GetTicketResponse(result, true, "عملیات با موفقیت انجام شد");
+                return new GetTicketConversationsResponse(_mapper.Map<List<TicketConversation>>(result), true, "عملیات با موفقیت انجام شد");
             }
             catch (Exception ex)
             {
 
-                return new GetTicketResponse(null, false, $"خطایی رخ داد:{ex.ToString()}");
+                return new GetTicketConversationsResponse(null, false, $"خطایی رخ داد:{ex.ToString()}");
             }
         }
 

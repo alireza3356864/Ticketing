@@ -32,6 +32,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MazaNetCOreFw.TicketingPers
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ticketing-Webapi", "Ticketing-Webapi\Ticketing-Webapi.csproj", "{71B36EDF-0705-4750-ABCC-DA9C6F385620}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication3", "WebApplication3\WebApplication3.csproj", "{4E878718-5DC0-406D-90A7-2BB0C5D6A956}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,6 +68,10 @@ Global
 		{71B36EDF-0705-4750-ABCC-DA9C6F385620}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71B36EDF-0705-4750-ABCC-DA9C6F385620}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71B36EDF-0705-4750-ABCC-DA9C6F385620}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E878718-5DC0-406D-90A7-2BB0C5D6A956}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E878718-5DC0-406D-90A7-2BB0C5D6A956}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E878718-5DC0-406D-90A7-2BB0C5D6A956}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E878718-5DC0-406D-90A7-2BB0C5D6A956}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

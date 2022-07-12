@@ -20,7 +20,7 @@ namespace MazaNetCOreFw.TicketingPersistence.Test
         {
             cfg.AddProfile(new TicketingProfile());
         }).CreateMapper();
-        Guid ticketId = Guid.Parse("37F1691E-339A-4EF8-9C9C-023B57EAB986");
+        Guid ticketId = Guid.Parse("071E382A-478D-4833-871E-411BDD2B68E4");
         Guid fromSectionId = Guid.Parse("600a3141-ddfb-4279-bd28-5c405dc3e1a0");
         string fromUserId = "32C83E33-16A9-40CF-A8BE-43B93EE87D28";
         string fromUserName = "store18@surenacs.com";
@@ -36,14 +36,9 @@ namespace MazaNetCOreFw.TicketingPersistence.Test
             {
 
                 ITicketingUnitOfWork unitOfWork = new TicketingUnitOfWork(_mapper, dbContext);
-
-                
-
-
-
                 var response = await unitOfWork.TicketConversationRepository.InsertAsync(new AppTicketConversation()
                 {
-                    Body = "مشکل دارم",
+                    Body = "test 8",
                     Status = TicketStatus.New,
                     UserId = fromUserId,
                     UserName = fromUserName,

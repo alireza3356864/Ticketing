@@ -255,7 +255,7 @@ namespace MazaNetCOreFw.TicketingService.Test
             {
                 var unitOfWork = new TicketingUnitOfWork(_mapper, dbContext);
                 RootTicketingService rootDummyService = new RootTicketingService(unitOfWork, _mapper);
-                TicketPresenter ticketPresenter = new TicketPresenter();
+                TicketConversationsPresenter ticketPresenter = new TicketConversationsPresenter();
 
                 var result = await rootDummyService.GetTicketConversationsHandle(new GetTicketConversationReq(ticketId)
                     , ticketPresenter);

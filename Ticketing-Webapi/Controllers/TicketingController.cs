@@ -28,7 +28,7 @@ namespace Ticketing_Webapi.Controllers
     public class TicketingController : Controller
     {
         Guid topicId = Guid.Parse("E6D1D44E-FE68-4952-A743-FB3C4E8EF9E6");
-        Guid ticketId = Guid.Parse("27A5895A-F37F-48B1-8880-8277F0942458");
+        Guid ticketId = Guid.Parse("4E3FDD25-C51D-4B2B-AE36-966B7A91B5A1");
         Guid fromSectionId = Guid.Parse("7B707DEB-9F58-4A0F-8518-A089D0386DBC");
         string fromUserId = "32C83E33-16A9-40CF-A8BE-43B93EE87D28";
         string fromUserName = "store18@surenacs.com";
@@ -72,6 +72,7 @@ namespace Ticketing_Webapi.Controllers
                            Priority = insertTicketRequest.Priority,
                            TopicId = insertTicketRequest.TopicId,
 
+
                            TicketRaiser = new TicketRaiser()
                            {
                                FromUserId = fromUserId,
@@ -112,7 +113,6 @@ namespace Ticketing_Webapi.Controllers
 
             var result = await _rootTicketingService.GetAllTicketsHandle(new GetTicketsReq(
                 fromSectionId:Guid.Parse("7B707DEB-9F58-4A0F-8518-A089D0386DBC")
-             
                 ), ticketsPresenter);
 
             return ticketsPresenter.ContentResult;
@@ -150,24 +150,14 @@ namespace Ticketing_Webapi.Controllers
 
         [HttpPost]
         [Route("GetAllTicketConversation")]
-        public async Task<ActionResult> GetAllTicketConversation()
+        public async Task<ActionResult> GetAllTicketConversation(GetTicketConversationsRequest getTicketConversationsRequest)
         {
-            TicketPresenter ticketPresenter = new TicketPresenter();
+            TicketConversationsPresenter ticketPresenter = new TicketConversationsPresenter();
 
-            var result = await _rootTicketingService.GetTicketConversationsHandle(new GetTicketConversationReq(Guid.Parse("87c7b203-2eac-443f-8081-f537c533ab6b"))
+            var result = await _rootTicketingService.GetTicketConversationsHandle(new GetTicketConversationReq(getTicketConversationsRequest.TicketId)
                     , ticketPresenter);
 
             return ticketPresenter.ContentResult;
         }
-
-
-
-
-
-
-
-
-
-
     }
 }

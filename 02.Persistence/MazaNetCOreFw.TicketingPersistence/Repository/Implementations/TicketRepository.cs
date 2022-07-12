@@ -133,23 +133,36 @@ namespace MazaNetCOreFw.TicketingPersistence.Repository.Implementations
         /// <param name="status"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public async Task<BaseResponse> UpdateStatusAsync(Guid Ticketid, TicketStatus status, CancellationToken cancellationToken = default)
+        public async Task<GetTicketResponse> UpdateStatusAsync(Guid ticketId, string fromUserId, TicketStatus status, CancellationToken cancellationToken = default)
         {
             try
             {
-                var appTicketUpdate = await _dbContext.Tickets.FindAsync(Ticketid);
-                if (appTicketUpdate is null)
-                {
-                    return new BaseResponse(null, false, "تیکتی با مشخصات درخواستی شما یافت نشد");
-                }
-                appTicketUpdate.Status = status;
+                var appTicket = await _dbContext.Tickets
+                                                      .Include(x => x.TicketRaiser)
+                                                      .FirstOrDefaultAsync(x => x.Id.Equals(ticketId));
 
-                return new BaseResponse(null, true, "عملیات با موفقیت انجام شد");
+                if (appTicket is null)
+                {
+                    return new GetTicketResponse(null, false, "تیکتی با مشخصات درخواستی شما یافت نشد");
+                }
+                //If the person registering the  ticket conversation is the same person who registered the ticket,
+                //the status equal RaiserAnswered else status equal RecipientAnswered
+                if (status != TicketStatus.New ||
+                    status != TicketStatus.Closed)
+                {
+                    status = fromUserId.Equals(appTicket.TicketRaiser.FromUserId) ?
+                            TicketStatus.RaiserAnswered :
+                            TicketStatus.RecipientAnswered;
+                }
+                appTicket.Status = status;
+
+
+                return new GetTicketResponse(_mapper.Map<Ticket>(appTicket), true, "عملیات با موفقیت انجام شد");
 
             }
             catch (Exception ex)
             {
-                return new BaseResponse(null, false, $"خطایی رخ داد:{ex.ToString()}");
+                return new GetTicketResponse(null, false, $"خطایی رخ داد:{ex.ToString()}");
             }
         }
 
