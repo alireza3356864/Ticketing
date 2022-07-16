@@ -54,6 +54,7 @@ namespace Ticketing_Webapi.Controllers
         public string Index()
         {
             return "Welcome";
+
         }
 
 
@@ -61,8 +62,9 @@ namespace Ticketing_Webapi.Controllers
         [Route("InsertTicket")]
         public async Task<ActionResult> InsertTicket(InsertTicketRequest insertTicketRequest)
         {
+
             
-                TicketPresenter ticketPresenter = new TicketPresenter();
+            TicketPresenter ticketPresenter = new TicketPresenter();
             
                 var result =await _rootTicketingService.InsertTicketHandle(new InsertTicketReq(
                        new Ticket()
@@ -101,8 +103,9 @@ namespace Ticketing_Webapi.Controllers
                     ), ticketPresenter);
 
                 return ticketPresenter.ContentResult;
-            
+        
         }
+        
 
 
         [HttpPost]

@@ -19,6 +19,9 @@ using MazaNetCOreFw.SharedService.Implementation;
 using System.Globalization;
 using Newtonsoft.Json;
 using MazaNetCOreFw.TicketingDomain.Dto.Responses;
+using Telegram.Bot;
+using System.Threading;
+using Webhook;
 
 namespace MazaNetCOreFw.TicketingService.Test
 {
@@ -26,7 +29,7 @@ namespace MazaNetCOreFw.TicketingService.Test
     {
         Guid topicId = Guid.Parse("E6D1D44E-FE68-4952-A743-FB3C4E8EF9E6");
         Guid ticketId = Guid.Parse("27A5895A-F37F-48B1-8880-8277F0942458");
-        Guid fromSectionId = Guid.Parse("600a3141-ddfb-4279-bd28-5c405dc3e1a0");
+        Guid fromSectionId = Guid.Parse("7B707DEB-9F58-4A0F-8518-A089D0386DBC");
         string fromUserId = "32C83E33-16A9-40CF-A8BE-43B93EE87D28";
         string fromUserName = "store18@surenacs.com";
         string fromSectionName = "سورنا 18";
@@ -152,21 +155,26 @@ namespace MazaNetCOreFw.TicketingService.Test
             }
         }
 
-
-
         [Fact]
         public async Task InsertTicketTest()
         {
+     
             using (TicketingDbContext dbContext = new TicketingDbContextFactory().Create())
             {
                 var unitOfWork = new TicketingUnitOfWork(_mapper, dbContext);
                 RootTicketingService rootDummyService = new RootTicketingService(unitOfWork, _mapper);
                 TicketPresenter ticketPresenter = new TicketPresenter();
 
-                
+                rootDummyService.CustomErrorEvent += () =>
+                {
+                    var botClient = new TelegramBotClient("5448721328:AAHCVloFEcU9RssNjAcxDbNGM_TQUW3hLgY");
+                    using var cts = new CancellationTokenSource();
+                    botClient.SendTextMessageAsync(229209448, "Insert message Is successful");
+                };
+
                 var result = await rootDummyService.InsertTicketHandle(new InsertTicketReq(new Ticket()
                 {
-                    Title = "test ticket",
+                    Title = "تست2",
                     Status = TicketStatus.New,
                     Priority = TicketPriority.Low,
                     TopicId = topicId,
@@ -194,6 +202,7 @@ namespace MazaNetCOreFw.TicketingService.Test
                         }
                     }
                 }), ticketPresenter);
+
                 var ticketResponse = JsonConvert.DeserializeObject<GetTicketResponse>(ticketPresenter.ContentResult.Content);
                 Assert.True(ticketResponse.SuccessCall && ticketResponse.SuccessOperation);
             }

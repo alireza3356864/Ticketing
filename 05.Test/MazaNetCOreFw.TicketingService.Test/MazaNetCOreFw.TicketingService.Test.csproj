@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\03.Service\MazaNetCOreFw.TicketingService\MazaNetCOreFw.TicketingService.csproj" />
+    <ProjectReference Include="..\..\WebhookMessageHandler\WebhookMessageHandler.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -13,6 +13,10 @@ using System.Threading.Tasks;
 using MazaNetCOreFw.TicketingDomain.Dto.Requests;
 using MazaNetCOreFw.TicketingDomain.Dto.Responses;
 using MazaNetCOreFw.Common.Classes;
+using Telegram.Bot;
+using Telegram.Bot.Types;
+using System.Threading;
+using Telegram.Bot.Polling;
 
 namespace MazaNetCOreFw.TicketingService.Implementations
 {
@@ -151,6 +155,10 @@ namespace MazaNetCOreFw.TicketingService.Implementations
                 _unitOfWork.Clear();
             }
         }
+
+
+        public delegate void SendMessageHandler();
+        public event SendMessageHandler CustomErrorEvent;
         /// <summary>
         /// generate code for ticket and insert a new ticket and get ticket
         /// </summary>
@@ -159,8 +167,10 @@ namespace MazaNetCOreFw.TicketingService.Implementations
         /// <returns></returns>
         public async Task<bool> InsertTicketHandle(InsertTicketReq message, IOutputPort<GetTicketResponse> outputPort)
         {
+            CustomErrorEvent.Invoke();
             try
             {
+                
                 //Generate a ticket code 
                 GenerateCodeResponse generateCodeResponse = await _unitOfWork.CodeSequenceRepository.GenerateCodeAsync(
                     message.Ticket.TicketRaiser.FromSectionType,
@@ -176,8 +186,13 @@ namespace MazaNetCOreFw.TicketingService.Implementations
                 //insert ticket
                 GetTicketResponse TicketResult = await _unitOfWork.TicketRepository.InsertAsync(_mapper.Map<AppTicket>(message.Ticket));
                 await _unitOfWork.SaveChangesAsync();
+               
+                //SendMessageToBot();
                 outputPort.Handle(TicketResult);
                 return true;
+               
+                //TicketResult.Ticket.Title
+
             }
             catch (Exception ex)
             {
@@ -190,6 +205,12 @@ namespace MazaNetCOreFw.TicketingService.Implementations
             }
 
         }
+        //public void SendMessageToBot()
+        //{
+        //    var botClient = new TelegramBotClient("5448721328:AAHCVloFEcU9RssNjAcxDbNGM_TQUW3hLgY");
+        //    using var cts = new CancellationTokenSource();
+        //    botClient.SendTextMessageAsync(229209448, "Insert message Is successful");
+        //}
         /// <summary>
         /// Get all tickets based on criteria
         /// </summary>

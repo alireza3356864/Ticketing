@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="MazaNetCOreFw.SharedService" Version="1.0.82116" />
+    <PackageReference Include="Telegram.Bot" Version="18.0.0" />
   </ItemGroup>
 
   <ItemGroup>
